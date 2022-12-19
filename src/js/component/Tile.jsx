@@ -52,11 +52,23 @@ const Tile = () => {
   };
 
   let status;
+  let draw = true;
+  
+  for (let i = 0; i < square.length; i++) {
+    if (square[i] === null) {
+      draw = false;
+      break;
+    }
+  }
+  
   if (winner) {
     status = `Winner: ${winner}`;
+  } else if (draw) {
+    status = "It's a draw!";
   } else {
     status = `Player Turn: ${next ? "X" : "O"}`;
   }
+  
 
   return (
     <div className="mt-3">
